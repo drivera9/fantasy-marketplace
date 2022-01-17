@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -31,9 +34,28 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/app/css/bootstrap.css",
+              "src/app/css/style.css",
+              "src/app/css/font-awesome.css",
+              "src/app/css/easy-responsive-tabs.css",
+              "src/app/css/team.css",
+              "src/app/css/jquery-ui.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/app/js/jquery-2.1.4.min.js",
+              "src/app/js/jquery-ui.js",
+              "src/app/js/bootstrap.js",
+              "src/app/js/move-top.js",
+              "src/app/js/responsiveslides.min.js",
+              "src/app/js/minicart.min.js",
+              "src/app/js/jquery.flexslider.js",
+              "src/app/js/easy-responsive-tabs.js",
+              "src/app/js/imagezoom.js",
+              "src/app/js/jquery.countup.js",
+              "src/app/js/jquery.easing.min.js",
+              "src/app/js/jquery.waypoints.min.js"
+            ]
           },
           "configurations": {
             "production": {
