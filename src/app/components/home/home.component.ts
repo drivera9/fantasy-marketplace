@@ -1,5 +1,7 @@
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { CATEGORIES } from 'src/app/model/categories.enum';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-home',
@@ -32,11 +34,21 @@ export class HomeComponent implements OnInit {
     { path: '../assets/images/1.png' },
     { path: '../assets/images/1.png' },
   ];
+  lastProducts: any = [];
+  products: any = [];
+  bestProducts: any = [];
+  tabSelected: CATEGORIES = 0;
+  CATEGORIE = CATEGORIES;
+  constructor(
+    private productsSvc: ProductsService
+  ) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  async ngOnInit() {
     debugger
+    this.products = await this.productsSvc.getProducts();
+    this.lastProducts = [...this.products].sort((a, b) => a.date - b.date).splice(0, 2);
+    this.bestProducts = [...this.products].sort((a, b) => a.sold - b.sold).splice(0, 3);
+    console.log(this.bestProducts);
   }
 
   openMenu(option: any) {
@@ -44,6 +56,19 @@ export class HomeComponent implements OnInit {
       this.menu[key] = key === option ? this.menu[option] : false;
     }
     this.menu[option] = !this.menu[option];
+  }
+
+  filterNewProducts() {
+    return [...this.products].filter(p => {
+      const a = new Date(p.date);
+      const c = a.getMonth();
+      const b = new Date().getMonth()
+      return new Date(p.date).getMonth() === new Date().getMonth()
+     } ).filter(p => p.category === this.tabSelected);
+  }
+
+  selectTab(tab: any) {
+    this.tabSelected = tab;
   }
 
 }

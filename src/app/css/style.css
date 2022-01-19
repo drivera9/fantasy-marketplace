@@ -1490,7 +1490,7 @@ button.w3view-cart {
     opacity: 1;
     visibility: visible;
 }
-.men-thumb-item img {
+.men-thumb-item div {
     transition: all 0.5s ease-out 0s;
 }
 .pro-image-back {
@@ -1501,7 +1501,7 @@ button.w3view-cart {
     top: 0;
     left: 0;
 }
-.men-thumb-item img {
+.men-thumb-item div {
     transition: all 0.5s ease-out 0s;
 }
 .men-cart-pro {
@@ -1588,7 +1588,7 @@ button.w3view-cart {
     visibility: visible;
     background: #f7f7f7;
 }
-.men-thumb-item img {
+.men-thumb-item div {
     transition: all 0.5s ease-out 0s;
     padding: 52px 50px 20px;
 }
@@ -1651,7 +1651,7 @@ a.single-item{
 }
 /*-- /sale --*/
    .sale-w3ls {
-    background: url('/../assets/images/banner3.jpg')no-repeat 0px 0px;
+    background: url('/../assets/images/model.jpg')no-repeat 0px 0px;
     background-attachment: fixed;
     background-size: cover;
 	-webkit-background-size: cover;

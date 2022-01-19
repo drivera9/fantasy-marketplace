@@ -54,7 +54,8 @@
               "src/app/js/imagezoom.js",
               "src/app/js/jquery.countup.js",
               "src/app/js/jquery.easing.min.js",
-              "src/app/js/jquery.waypoints.min.js"
+              "src/app/js/jquery.waypoints.min.js",
+              "src/app/js/modernizr.custom.js"
             ]
           },
           "configurations": {
