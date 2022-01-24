@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "target": "fantasy-marketplace",
+    "public": "dist",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

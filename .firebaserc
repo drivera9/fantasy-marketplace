@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "fantasy-19c05"
+  },
+  "targets": {
+    "fantasy-19c05": {
+      "hosting": {
+        "fantasy-marketplace": [
+          "fantasy-marketplace"
+        ]
+      }
+    }
+  }
+}
