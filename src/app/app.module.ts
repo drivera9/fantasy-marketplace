@@ -10,10 +10,17 @@ import { HomeComponent } from './components/home/home.component';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { BaseComponent } from './components/shared/base/base.component';
+import { HeaderComponent } from './components/shared/header/header.component';
+import { ProductsComponent } from './components/products/products.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent,
+    FooterComponent,
+    ProductsComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -24,7 +31,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     IvyCarouselModule,
     NgbModule
   ],
-  providers: [],
+  providers: [
+    BaseComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

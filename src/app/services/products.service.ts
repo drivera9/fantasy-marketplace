@@ -13,9 +13,9 @@ export class ProductsService {
   getProducts(): Promise<any[]> {
     return new Promise(resolve => {
       let userDoc = this.firestore.firestore.collection(`products`);
-      userDoc.get().then((querySnapshot) => {
+      userDoc.get().then((querySnapshot: any) => {
         let models: any = [];
-        querySnapshot.forEach((doc) => {
+        querySnapshot.forEach((doc: any) => {
           models.push(doc.data());
         });
 
