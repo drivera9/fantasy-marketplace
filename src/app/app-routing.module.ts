@@ -23,6 +23,10 @@ const routes: Routes = [
     component: ProductsComponent,
   },
   {
+    path: 'product/:type',
+    component: ProductsComponent,
+  },
+  {
     path: '**',
     redirectTo: 'home'
   }

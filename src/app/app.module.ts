@@ -14,13 +14,15 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { BaseComponent } from './components/shared/base/base.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { ProductsComponent } from './components/products/products.component';
+import { GridProductsComponent } from './components/products/grid-products/grid-products.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    ProductsComponent
+    ProductsComponent,
+    GridProductsComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

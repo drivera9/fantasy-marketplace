@@ -1,14 +1,16 @@
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CATEGORIES } from 'src/app/model/categories.enum';
 import { ProductsService } from 'src/app/services/products.service';
+import { BaseComponent } from '../shared/base/base.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss', '../../css/style.css', '../../css/font-awesome.css', '../../css/easy-responsive-tabs.css'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent extends BaseComponent implements OnInit {
 
   images = [
     { path: '../assets/images/1.png' },
@@ -22,8 +24,11 @@ export class HomeComponent implements OnInit {
   tabSelected: CATEGORIES = 0;
   CATEGORIE = CATEGORIES;
   constructor(
-    private productsSvc: ProductsService
-  ) { }
+    private productsSvc: ProductsService,
+    router: Router
+  ) {
+    super(router);
+  }
 
   async ngOnInit() {
     this.products = await this.productsSvc.getProducts();
