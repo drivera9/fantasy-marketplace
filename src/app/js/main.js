@@ -1,7 +1,5 @@
 
-// You can also use "$(window).load(function() {"
-$(function () {
-    // Slideshow 4
+function reloadSliders() {
     $("#slider3").responsiveSlides({
         auto: true,
         pager: true,
@@ -15,4 +13,19 @@ $(function () {
             $('.events').append("<li>after event fired.</li>");
         }
     });
-});
+
+    $(window).load(function () {
+        $("#slider-range").slider({
+            range: true,
+            min: 0,
+            max: 9000,
+            values: [1, 1000],
+            slide: function (event, ui) {
+                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+            }
+        });
+        $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+
+    });
+}
+

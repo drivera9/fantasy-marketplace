@@ -169,22 +169,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li data-target="#FmyCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-      <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-      <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+      <li data-target="#myCarousel" [ngClass]="idx === 0 ? 'active' : ''" *ngFor="let model of models; let idx = index;"
+        [attr.data-slide-to]="idx"></li>
     </ol>
     <div class="carousel-inner" role="listbox">
-      <div class="item active">
+      <div class="item" [ngClass]="idx > 0 ? ('item' + idx) : 'active'"
+        [ngStyle]="{'background': 'linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(' + model.home.banner + ') no-repeat' , 
+       'background-size' : 'cover'}" *ngFor="let model of models; let idx = index;">
         <div class="container">
           <div class="carousel-caption">
-            <h3>Modelo <span>Tony Golf</span></h3>
+            <h3>Modelo <span>{{ model.name }}</span></h3>
             <p>¡Compra mi lenceria!</p>
-            <a class="hvr-outline-out button2" href="mens.html">Comprar ahora </a>
+            <a class="hvr-outline-out button2" (click)="goTo('product/' + model.id)">Comprar ahora </a>
           </div>
         </div>
       </div>
-      <div class="item item2">
+      <!-- <div class="item item2">
         <div class="container">
           <div class="carousel-caption">
             <h3>Modelo <span>Santi & Emma</span></h3>
@@ -210,7 +210,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <a class="hvr-outline-out button2" href="mens.html">Comprar ahora </a>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>

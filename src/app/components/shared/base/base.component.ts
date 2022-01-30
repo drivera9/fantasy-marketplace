@@ -13,7 +13,8 @@ export class BaseComponent {
   ) { }
 
   goTo(page: any) {
-    this.router.navigate([page]);
+    debugger
+    page === 'product' ? window.location.href = '/product' : this.router.navigate([page]);
   }
 
 }

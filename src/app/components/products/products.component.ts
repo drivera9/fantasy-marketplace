@@ -1,25 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
-
+import { BaseComponent } from '../shared/base/base.component';
+declare function reloadSliders(): any;
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent extends BaseComponent implements OnInit {
 
   type: any = '';
   products: any;
 
   constructor(
+    routeS: Router,
     private route: ActivatedRoute,
     private productsSvc: ProductsService
-  ) { }
+  ) { 
+    super(routeS);
+  }
 
   ngOnInit() {
     this.type = this.route.snapshot.paramMap.get('type');
     this.getProducts(this.type);
+    reloadSliders();
   }
 
   async getProducts(type: any) {

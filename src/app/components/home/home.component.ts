@@ -2,9 +2,11 @@ import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CATEGORIES } from 'src/app/model/categories.enum';
+import { ModelsService } from 'src/app/services/models.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { BaseComponent } from '../shared/base/base.component';
 
+declare function reloadSliders(): any;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -23,8 +25,11 @@ export class HomeComponent extends BaseComponent implements OnInit {
   bestProducts: any = [];
   tabSelected: CATEGORIES = 0;
   CATEGORIE = CATEGORIES;
+  models: any = [];
+
   constructor(
     private productsSvc: ProductsService,
+    private modelsSvc: ModelsService,
     router: Router
   ) {
     super(router);
@@ -34,7 +39,12 @@ export class HomeComponent extends BaseComponent implements OnInit {
     this.products = await this.productsSvc.getProducts();
     this.lastProducts = [...this.products].sort((a, b) => a.date - b.date).splice(0, 2);
     this.bestProducts = [...this.products].sort((a, b) => a.sold - b.sold).splice(0, 3);
-    console.log(this.bestProducts);
+    this.getModels();
+  }
+
+  async getModels() {
+    this.models = await this.modelsSvc.getModels();
+    reloadSliders();
   }
 
   filterNewProducts() {
