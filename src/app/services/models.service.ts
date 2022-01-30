@@ -28,4 +28,13 @@ export class ModelsService {
     });
   }
 
+  getModel(id: any): Promise<any> {
+    return new Promise(resolve => {
+      let userDoc = this.firestore.firestore.collection(`models`).doc(id);
+      userDoc.get().then((doc) => {
+        resolve(doc.data());
+      })
+    });
+  }
+
 }

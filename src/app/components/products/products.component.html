@@ -149,7 +149,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<!-- //Modal2 -->
 	<!-- /banner_bottom_agile_info -->
-	<div class="page-head_agile_info_w3l" *ngIf="!type">
+	<div class="page-head_agile_info_w3l" *ngIf="!modelId">
 		<div class="container">
 			<h3>Comprar <span>productos </span></h3>
 			<!--/w3_short-->
@@ -165,18 +165,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!--//w3_short-->
 		</div>
 	</div>
-	<div style="height: 400px; position: relative; margin-bottom: 20%;" *ngIf="type">
+	<div style="height: 400px; position: relative; margin-bottom: 20%;" *ngIf="modelId && model && model.marketplace && model.marketplace.profile" >
 
-		<div style="background: url('/../assets/images/modelprofile.jpeg') no-repeat center;
-		background-position: center 0;
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		filter: blur(5px);
-  		-webkit-filter: blur(5px);
-		  width: 100%;
-		  height: 100%;"></div>
+		<div class="banner" [style.background]="model.marketplace.profile.banner ? 'url(' + model.marketplace.profile.banner + ') no-repeat center' : 'url(
+			/../assets/images/modelprofile.jpeg) no-repeat center' ">
+		</div>
 
-		<div class="container" style="    display: flex;
+		<div *ngIf="model && model.marketplace && model.marketplace.profile" class=" container" style="display: flex;
 			flex-direction: column;
 			position: absolute;
 			left: 50%;
@@ -186,14 +181,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<span style="color: white;  margin: 0 auto;
 			font-size: 50px;
 			text-shadow: 2px 4px 3px rgb(0 0 0 / 30%);border-top: 3px solid white;
-    		border-bottom: 3px solid white;">Tony Golf</span>
+    		border-bottom: 3px solid white;">{{ model.alias ? model.alias : model.name }}</span>
 			<div class="circular_image" style="margin: 0 auto;margin-top: 25px;">
-				<div style="background-position: center;
-				background-repeat: no-repeat;
-				background-image: url(./assets/images/modelprofile1.jpeg);
-				background-size: cover;
-				width: 300px;
-				height: 300px;">
+				<div class="profile" [style.background-image]="model.marketplace.profile.profile ? 'url(' + model.marketplace.profile.profile + ')' : 'url(
+					/../assets/images/modelprofile.jpeg)' ">
 
 				</div>
 			</div>
@@ -219,28 +210,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 
-	<div class="men-wear-bottom" style="margin-left: 50px;margin-right: 50px;" *ngIf="type">
+	<div class="men-wear-bottom" style="margin-left: 50px;margin-right: 50px;" *ngIf="modelId">
 		<div class="col-sm-4 men-wear-left">
 			<img class="img-responsive" src="./../assets/images/antonio2.jpeg" alt=" " />
 		</div>
-		<div class="col-sm-8 men-wear-right">
+		<div class="col-sm-8 men-wear-right" *ngIf="model && model.marketplace && model.marketplace.profile">
 			<h4>Sobre <span>mi</span></h4>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-				dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-				ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-				fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-				deserunt mollit anim id est laborum. </p>
+			<p>{{ model.marketplace.profile.aboutMe }}</p>
 		</div>
 		<div class="clearfix"></div>
 	</div>
-	<div class="men-wear-bottom" style="margin-left: 50px;margin-right: 50px;" *ngIf="type">
-		<div class="col-sm-8 men-wear-right">
+	<div class="men-wear-bottom" style="margin-left: 50px;margin-right: 50px;" *ngIf="modelId">
+		<div class="col-sm-8 men-wear-right" *ngIf="model && model.marketplace && model.marketplace.profile">
 			<h4>Gustos, fetiches y <span>demás</span></h4>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-				dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-				ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-				fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-				deserunt mollit anim id est laborum. </p>
+			<p>{{ model.marketplace.profile.pleasures }}</p>
 		</div>
 		<div class="col-sm-4 men-wear-right">
 			<img class="img-responsive" src="./../assets/images/antonio3.jpeg" alt=" " />
@@ -362,32 +345,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="community-poll">
 					<h4>Ordenar</h4>
 					<div class="swit form">
-						<form>
+						<form onsubmit="filterProducts()">
 							<div class="check_box">
-								<div class="radio"> <label><input type="radio" name="radio"
+								<div class="radio"> <label><input type="radio" name="radio" value="featured"
 											checked=""><i></i>Destacados</label> </div>
 							</div>
 							<div class="check_box">
-								<div class="radio"> <label><input type="radio" name="radio"><i></i>Menor precio</label>
+								<div class="radio"> <label><input type="radio" name="radio" value="less"><i></i>Menor precio</label>
 								</div>
 							</div>
 							<div class="check_box">
-								<div class="radio"> <label><input type="radio" name="radio"><i></i>Mayor precio</label>
+								<div class="radio"> <label><input type="radio" name="radio" value="higher"><i></i>Mayor precio</label>
 								</div>
 							</div>
 							<div class="check_box">
-								<div class="radio"> <label><input type="radio" name="radio"><i></i>Mas vendidos</label>
+								<div class="radio"> <label><input type="radio" name="radio" value="best"><i></i>Mas vendidos</label>
 								</div>
 							</div>
-							<input type="submit" value="ACEPTAR">
+							<input type="submit" value="APLICAR">
 						</form>
 					</div>
 				</div>
 				<div class="clearfix"></div>
 			</div>
 			<div class="col-md-9 products-right">
-				<h5 style="margin-top:20px;" *ngIf="products && products.length > 0">{{ type ? 'Mis ' : ''}} Productos
-					<span>({{ products.length }})</span></h5>
+				<h5 style="margin-top:20px;" *ngIf="products && products.length > 0">{{ modelId ? 'Mis ' : ''}}
+					Productos
+					<span>({{ products.length }})</span>
+				</h5>
 				<div class="sort-grid">
 					<div class="sorting">
 						<h6>Ordenar</h6>
@@ -450,7 +435,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="coupons">
 		<div class="coupons-grids text-center">
 			<div class="w3layouts_mail_grid">
-				<div class="col-md-3 w3layouts_mail_grid_left">
+				<div class="col-md-4 w3layouts_mail_grid_left">
 					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
 						<i class="fa fa-truck" aria-hidden="true"></i>
 					</div>
@@ -459,7 +444,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p>Hacemos envios a todas las partes del mundo</p>
 					</div>
 				</div>
-				<div class="col-md-3 w3layouts_mail_grid_left">
+				<div class="col-md-4 w3layouts_mail_grid_left">
 					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
 						<i class="fa fa-headphones" aria-hidden="true"></i>
 					</div>
@@ -468,7 +453,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p>En todo momento tenemos soporte</p>
 					</div>
 				</div>
-				<div class="col-md-3 w3layouts_mail_grid_left">
+				<!-- <div class="col-md-4 w3layouts_mail_grid_left">
 					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
 						<i class="fa fa-shopping-bag" aria-hidden="true"></i>
 					</div>
@@ -476,8 +461,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<h3>GARANTIA DE DINERO</h3>
 						<p>Si no estas satisfecho con la prenda, te devolvemos el dinero!</p>
 					</div>
-				</div>
-				<div class="col-md-3 w3layouts_mail_grid_left">
+				</div> -->
+				<div class="col-md-4 w3layouts_mail_grid_left">
 					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
 						<i class="fa fa-gift" aria-hidden="true"></i>
 					</div>

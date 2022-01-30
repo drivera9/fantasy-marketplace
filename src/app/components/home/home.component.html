@@ -174,11 +174,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </ol>
     <div class="carousel-inner" role="listbox">
       <div class="item" [ngClass]="idx > 0 ? ('item' + idx) : 'active'"
-        [ngStyle]="{'background': 'linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(' + model.home.banner + ') no-repeat' , 
+        [ngStyle]="{'background': 'linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(' + model.marketplace.home.banner + ') no-repeat' , 
        'background-size' : 'cover'}" *ngFor="let model of models; let idx = index;">
         <div class="container">
           <div class="carousel-caption">
-            <h3>Modelo <span>{{ model.name }}</span></h3>
+            <h3>Modelo <span>{{ model.alias ? model.alias : model.name }}</span></h3>
             <p>¡Compra mi lenceria!</p>
             <a class="hvr-outline-out button2" (click)="goTo('product/' + model.id)">Comprar ahora </a>
           </div>
