@@ -15,6 +15,7 @@ import { BaseComponent } from './components/shared/base/base.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { ProductsComponent } from './components/products/products.component';
 import { GridProductsComponent } from './components/products/grid-products/grid-products.component';
+import { DetailProductComponent } from './components/products/detail-product/detail-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { GridProductsComponent } from './components/products/grid-products/grid-
     HeaderComponent,
     FooterComponent,
     ProductsComponent,
-    GridProductsComponent
+    GridProductsComponent,
+    DetailProductComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

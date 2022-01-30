@@ -10,10 +10,13 @@ export class BaseComponent {
 
   constructor(
     private router: Router
-  ) { }
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+  }
 
   goTo(page: any) {
-    debugger
     page === 'product' ? window.location.href = '/product' : this.router.navigate([page]);
   }
 

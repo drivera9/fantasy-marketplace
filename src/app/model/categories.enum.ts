@@ -5,3 +5,9 @@ export enum CATEGORIES {
     LESBIAN = 3,
     GAY = 4
 }
+
+export enum CATEGORIES_DETAIL_PRODUCT {
+    DESCRIPTION = 0,
+    REVIEWS = 1,
+    INFORMATION = 2
+}

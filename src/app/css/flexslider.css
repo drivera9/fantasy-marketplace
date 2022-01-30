@@ -13,9 +13,6 @@
  * FONT-FACE
  * ====================================================================================================================*/
 @font-face {
-  font-family: 'flexslider-icon';
-  src: url('../fonts/webfont/flexslider-icon.eot');
-  src: url('../fonts/webfonts/flexslider-icon.eot?#iefix') format('embedded-opentype'), url('../fonts/webfonts/flexslider-icon.woff') format('woff'), url('../fonts/webfonts/flexslider-icon.ttf') format('truetype'), url('../fonts/webfonts/flexslider-icon.svg#flexslider-icon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -137,7 +134,6 @@ html[xmlns] .flexslider .slides {
   color: #000;
 }
 .flex-pauseplay a:before {
-  font-family: "flexslider-icon";
   font-size: 20px;
   display: inline-block;
   content: '\f004';

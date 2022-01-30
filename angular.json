@@ -40,7 +40,8 @@
               "src/app/css/font-awesome.css",
               "src/app/css/easy-responsive-tabs.css",
               "src/app/css/team.css",
-              "src/app/css/jquery-ui.css"
+              "src/app/css/jquery-ui.css",
+              "src/app/css/flexslider.css"
             ],
             "scripts": [
               "src/app/js/jquery-2.1.4.min.js",

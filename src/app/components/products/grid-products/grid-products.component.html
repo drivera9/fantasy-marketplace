@@ -15,14 +15,14 @@
       <img [src]="product.image" alt="" class="pro-image-back"> -->
       <div class="men-cart-pro">
         <div class="inner-men-cart-pro">
-          <a href="single.html" class="link-product-add-cart">Ver</a>
+          <a (click)="goTo('product/' + (model ? model.id : product.model.id) + '/detail-product/' + product.id)"  class="link-product-add-cart">Ver</a>
         </div>
       </div>
-      <span class="product-new-top">Nuevo</span>
+      <span class="product-new-top"*ngIf="getIsNew(product)">Nuevo</span>
 
     </div>
     <div class="item-info-product " style="height: 30%">
-      <h4><a href="single.html">{{ product.name }}</a></h4>
+      <h4><a (click)="goTo('product/' + (model ? model.id : product.model.id) + '/detail-product/' + product.id)" >{{ product.name }}</a></h4>
       <div class="info-product-price">
         <span class="item_price">${{ product.price | number }}</span>
         <del *ngIf="product.discount">${{ product.discount }}</del>

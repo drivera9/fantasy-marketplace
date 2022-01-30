@@ -166,15 +166,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- //Modal2 -->
 
   <!-- banner -->
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" *ngIf="models && models.length > 0">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li data-target="#myCarousel" [ngClass]="idx === 0 ? 'active' : ''" *ngFor="let model of models; let idx = index;"
+      <li data-target="#myCarousel" *ngFor="let model of models; let idx = index;" [ngClass]="idx === 0 ? 'active' : ''"
         [attr.data-slide-to]="idx"></li>
     </ol>
     <div class="carousel-inner" role="listbox">
-      <div class="item" [ngClass]="idx > 0 ? ('item' + idx) : 'active'"
-        [ngStyle]="{'background': 'linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(' + model.marketplace.home.banner + ') no-repeat' , 
+      <div class="item" [ngClass]="idx > 0 ? ('item' + idx) : 'active'" [ngStyle]="{'background': 'linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(' + (model && model.marketplace ? model.marketplace.home.banner : '') + ') no-repeat' , 
        'background-size' : 'cover'}" *ngFor="let model of models; let idx = index;">
         <div class="container">
           <div class="carousel-caption">

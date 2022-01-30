@@ -24,4 +24,13 @@ export class ProductsService {
     });
   }
 
+  getProduct(id: any): Promise<any> {
+    return new Promise(resolve => {
+      let userDoc = this.firestore.firestore.collection(`products`).doc(id);
+      userDoc.get().then((doc) => {
+        resolve(doc.data());
+      })
+    });
+  }
+
 }
