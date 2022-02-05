@@ -36,7 +36,22 @@ export class DetailProductComponent implements OnInit {
   async getProducts(productID: any) {
     this.products = await this.productsSvc.getProducts();
     this.product = [...this.products].find(product => product.id === productID);
+    debugger
     this.featuredProducts = [...this.products].sort((a, b) => a.sold - b.sold).splice(0, 3)
+  }
+
+  copyMessage() {
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = 'Hola mundo';
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
   }
 
 }

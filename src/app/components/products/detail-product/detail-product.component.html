@@ -174,16 +174,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <div class="flexslider">
 
             <ul class="slides">
-              <li data-thumb="./../assets/images/d2.jpg">
-                <div class="thumb-image"> <img src="./../assets/images/d2.jpg" data-imagezoom="true"
+              <li attr.data-thumb="{{product.image}}">
+                <div class="thumb-image"> <img [src]="product.image" data-imagezoom="true"
                     class="img-responsive"> </div>
               </li>
-              <li data-thumb="./../assets/images/d1.jpg">
-                <div class="thumb-image"> <img src="./../assets/images/d1.jpg" data-imagezoom="true"
+              <li attr.data-thumb="{{product.image}}">
+                <div class="thumb-image"> <img [src]="product.image" data-imagezoom="true"
                     class="img-responsive"> </div>
               </li>
-              <li data-thumb="./../assets/images/d3.jpg">
-                <div class="thumb-image"> <img src="./../assets/images/d3.jpg" data-imagezoom="true"
+              <li attr.data-thumb="{{product.image}}">
+                <div class="thumb-image"> <img [src]="product.image" data-imagezoom="true"
                     class="img-responsive"> </div>
               </li>
             </ul>
@@ -255,7 +255,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <input type="hidden" name="currency_code" value="USD">
                 <input type="hidden" name="return" value=" ">
                 <input type="hidden" name="cancel_return" value=" ">
-                <input type="submit" name="submit" value="Add to cart" class="button">
+                <input type="submit" name="submit" value="AÑADIR AL CARRO" class="button">
               </fieldset>
             </form>
           </div>
@@ -264,8 +264,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <ul class="social-nav model-3d-0 footer-social w3_agile_social single_page_w3ls">
           <li class="share">Compartir </li>
           <li><a href="#" class="facebook">
-              <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
-              <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+              <div class="front"><i class="fa fa-link" aria-hidden="true" (click)="copyMessage()"></i></div>
+              <div class="back"><i class="fa fa-link" aria-hidden="true"></i></div>
             </a></li>
           <li><a href="#" class="twitter">
               <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
@@ -315,7 +315,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="bootstrap-tab-text-grid-right">
                       <ul>
                         <li><a href="#">Admin</a></li>
-                        <li><a href="#"><i class="fa fa-reply-all" aria-hidden="true"></i> Reply</a></li>
+                        <!-- <li><a href="#"><i class="fa fa-reply-all" aria-hidden="true"></i> Reply</a></li> -->
                       </ul>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget.Ut enim
                         ad minima veniam, quis nostrum exercitationem ullam corporis
@@ -325,19 +325,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="clearfix"> </div>
                   </div>
                   <div class="add-review">
-                    <h4>add a review</h4>
+                    <h4>Añadir un comentario</h4>
                     <form action="#" method="post">
-                      <input type="text" name="Name" required="Name">
-                      <input type="email" name="Email" required="Email">
-                      <textarea name="Message" required=""></textarea>
-                      <input type="submit" value="SEND">
+                      <input type="text" name="Name" required="Name" placeholder="Nombre">
+                      <input type="email" name="Email" required="Email" placeholder="Email">
+                      <textarea name="Message" required="" placeholder="Mensaje"></textarea>
+                      <input type="submit" value="ENVIAR">
                     </form>
                   </div>
                 </div>
 
               </div>
             </div>
-            <div *ngIf="tabSelected === CATEGORIE.INFORMATION">
+            <!-- <div *ngIf="tabSelected === CATEGORIE.INFORMATION">
 
               <div class="single_page_agile_its_w3ls">
                 <h6>Big Wing Sneakers (Navy)</h6>
@@ -350,7 +350,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   adipisicing elit, sed do eiusmod tempor incididunt ut lab ore et dolore magna aliqua. Ut enim ad minim
                   veniam, quis nostrud exercitation ullamco. labore et dolore magna aliqua.</p>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
