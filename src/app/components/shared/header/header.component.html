@@ -59,8 +59,8 @@
             <ul class="nav navbar-nav menu__list">
               <li class="active menu__item " [ngClass]="{ 'menu__item--current': currentUrl === '/home' }"><a
                   class="menu__link" (click)="goTo('home')">Inicio <span class="sr-only">(current)</span></a></li>
-              <li class=" menu__item" [ngClass]="{ 'menu__item--current': currentUrl === '/models' }"><a
-                  class="menu__link" href="about.html">Modelos</a></li>
+              <li class=" menu__item" [ngClass]="{ 'menu__item--current': currentUrl === '/members' }"><a
+                  class="menu__link" (click)="goTo('members')">Modelos</a></li>
               <li class="dropdown menu__item" [ngClass]="{ 'menu__item--current': currentUrl === '/products' }"
                 (click)="openMenu('first')">
                 <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true"

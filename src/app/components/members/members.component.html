@@ -1,0 +1,127 @@
+<section>
+  <div class="container">
+    <div class="row flex-center sm-no-flex">
+
+      <div class="pull-right sm-no-float col-md-8">
+        <ul class="team-members">
+          <!-- single member row starts -->
+          <li class="clearfix">
+            <div class="member-details" *ngFor="let model of getRowModels(1)">
+              <div (click)="goTo('product/' + model.id)">
+                <img
+                  [src]="model?.marketplace?.profile?.profile ? model?.marketplace?.profile?.profile : 'https://axis.org/wp-content/uploads/2015/05/evan-headshot.png'"
+                  alt="UI Designer">
+                <div class="member-info">
+                  <h3>{{model.alias ? model.alias : model.name}}</h3>
+                  <p>{{model.alias}}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="member-details" *ngFor="let model of getRowModel(4,6)">
+              <div>
+                <img src="http://gocheckers.com/images/roster/josh_wesley_headshot_1718.png" alt="UI Designer">
+                <div class="member-info">
+                  <h3>John Doe</h3>
+                  <p>UI Designer</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="member-details" *ngFor="let model of getRowModel(7,9)">
+              <div>
+                <img src="https://axis.org/wp-content/uploads/2014/10/chris-headshot.png" alt="UI Designer">
+                <div class="member-info">
+                  <h3>John Doe</h3>
+                  <p>UI Designer</p>
+                </div>
+              </div>
+            </div> -->
+          </li><!-- /single member row ends -->
+
+          <!-- single member row starts -->
+          <li class="clearfix">
+            <div class="member-details" *ngFor="let model of getRowModels(2)">
+              <div (click)="goTo('product/' + model.id)">
+                <img
+                  [src]="model?.marketplace?.profile?.profile ? model?.marketplace?.profile?.profile : 'https://axis.org/wp-content/uploads/2015/05/evan-headshot.png'"
+                  alt="UI Designer">
+                <div class="member-info">
+                  <h3>{{model.alias ? model.alias : model.name}}</h3>
+                  <p>{{model.alias}}</p>
+                </div>
+              </div>
+            </div>
+
+            <!--  <div class="member-details">
+              <div>
+                <img src="model.image" alt="UI Designer">
+                <div class="member-info">
+                  <h3>John Doe</h3>
+                  <p>UI Designer</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="member-details">
+              <div>
+                <img src="https://axis.org/wp-content/uploads/2015/12/2015-Dougie-Headshot.png" alt="UI Designer">
+                <div class="member-info">
+                  <h3>John Doe</h3>
+                  <p>UI Designer</p>
+                </div>
+              </div>
+            </div> -->
+          </li><!-- /single member row ends -->
+
+          <!-- single member row starts -->
+          <li class="clearfix">
+            <div class="member-details" *ngFor="let model of getRowModels(3)">
+              <div (click)="goTo('product/' + model.id)">
+                <img
+                  [src]="model?.marketplace?.profile?.profile ? model?.marketplace?.profile?.profile : 'https://axis.org/wp-content/uploads/2015/05/evan-headshot.png'"
+                  alt="UI Designer">
+                <div class="member-info">
+                  <h3>John Doe</h3>
+                  <p>UI Designer</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="member-details">
+              <div>
+                <img src="https://axis.org/wp-content/uploads/2014/12/jeremiah-e1418073411753.png" alt="UI Designer">
+                <div class="member-info">
+                  <h3>John Doe</h3>
+                  <p>UI Designer</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="member-details">
+              <div>
+                <img src="http://gocheckers.com/images/roster/josh_wesley_headshot_1718.png" alt="UI Designer">
+                <div class="member-info">
+                  <h3>John Doe</h3>
+                  <p>UI Designer</p>
+                </div>
+              </div>
+            </div> -->
+          </li><!-- /single member row ends -->
+
+        </ul><!-- /end team-photos -->
+      </div><!-- /end col-md-8 -->
+
+      <div class="pull-left col-md-4 sm-text-center">
+        <div class="team-overview">
+          <h2>Nuestros modelos</h2>
+          <a href="#">Conoce nuestros modelos y compra su lenceria!</a>
+          <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci quae nesciunt officia! Autem, nam eum
+            voluptatem, esse voluptatibus deleniti tempora laboriosam sequi pariatur, explicabo itaque. Fuga, deserunt?
+            Repudiandae, neque qui.</div>
+
+        </div>
+      </div><!-- /end col-md-4 -->
+    </div><!-- /end row -->
+  </div><!-- /end container -->
+</section>

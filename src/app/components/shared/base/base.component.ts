@@ -17,7 +17,7 @@ export class BaseComponent {
   }
 
   goTo(page: any) {
-    page === 'product' ? window.location.href = '/product' : this.router.navigate([page]);
+    page === 'product' ? window.location.href = '/product' : page.includes('detail-product') ? window.location.href = page : this.router.navigate([page]);
   }
 
 }
