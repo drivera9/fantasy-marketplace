@@ -36,6 +36,13 @@ export class ProductsComponent extends BaseComponent implements OnInit {
       this.model = await this.modelSvc.getModel(this.modelId);
       this.products = [...this.products].filter(product => product.model.id === modelId)
     }
+
+    this.route.queryParams
+      .subscribe((params: any) => {
+        this.products = [...this.products].filter((product: any) => {
+          return product.filters ? product.filters.includes(params.filter) : false
+        });
+      });
   }
 
   filterProducts() {

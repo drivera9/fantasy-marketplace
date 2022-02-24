@@ -36,7 +36,6 @@ export class DetailProductComponent implements OnInit {
   async getProducts(productID: any) {
     this.products = await this.productsSvc.getProducts();
     this.product = [...this.products].find(product => product.id === productID);
-    debugger
     this.featuredProducts = [...this.products].sort((a, b) => a.sold - b.sold).splice(0, 3)
   }
 

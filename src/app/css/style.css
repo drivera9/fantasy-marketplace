@@ -1757,6 +1757,7 @@ ul.multi-column-dropdown li a {
     font-size: 0.9em;
     color: #545454;
     letter-spacing: 1px;
+	cursor: pointer;
 }
 ul.multi-column-dropdown li a:hover{
 	color:#fac985;
@@ -1997,7 +1998,7 @@ h3.tittle {
 .contact-grid-agile-w3 {
     background: #171616;
     text-align: center;
-    width: 32%;
+    width: 49%;
     padding: 2em 1em;
 }
 .contact-grid-agile-w3:nth-child(2) {

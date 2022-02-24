@@ -59,7 +59,6 @@ function reloadSliders() {
     // Can also be used with $(document).ready()
     $(window).load(function () {
         setTimeout(() => {
-            debugger
             $('.flexslider').flexslider({
                 animation: "slide",
                 controlNav: "thumbnails"
