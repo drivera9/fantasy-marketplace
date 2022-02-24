@@ -17,11 +17,7 @@ export class BaseComponent {
   }
 
   goTo(page: any, param?: any) {
-    if (param) {
-      this.router.navigate(['/product'], { queryParams: { filter: param } });
-    } else {
-      page === 'product' ? window.location.href = '/product' : page.includes('detail-product') ? window.location.href = page : this.router.navigate([page]);
-    }
+    page === 'product' ?  window.location.href = '/product' : page.includes('detail-product') ? window.location.href = page : param ? window.location.href = '/product?filter=' + param : this.router.navigate([page]);
   }
 
 }
